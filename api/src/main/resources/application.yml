@@ -1,0 +1,12 @@
+server:
+  port: 8087
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+#logging:
+  #level:
+    #org.springframework : debug
