@@ -6,6 +6,9 @@ server:
       charset: UTF-8
       enabled: true
       force: true
+spring:
+  messages:
+    basename: messages
 
 #logging:
   #level:

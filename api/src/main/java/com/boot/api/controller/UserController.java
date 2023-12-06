@@ -5,17 +5,20 @@ import com.boot.api.model.User;
 import com.boot.api.repository.UserDaoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.MessageSource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Locale;
 
 @RequiredArgsConstructor
 @RestController
 public class UserController {
     private final UserDaoService userDaoService;
+    private final MessageSource messageSource;
 
     @PostMapping("/user")
     public ResponseEntity<User> joinUser(@Valid @RequestBody User user){
@@ -53,6 +56,11 @@ public class UserController {
     public ResponseEntity<User> deleteUser(@PathVariable int id){
         userDaoService.removeUser(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/international")
+    public String international(@RequestHeader(name = "Accept-Language" ,required = false)Locale locale){
+        return messageSource.getMessage("greeting.message",null,locale);
     }
 
 
