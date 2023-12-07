@@ -16,6 +16,7 @@ public class UserDaoService {
             .id(userCount)
             .name("sobonghee")
             .joinDate(new Date())
+            .password("1234")
             .build()
         );
     }

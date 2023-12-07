@@ -34,9 +34,9 @@ public class UserController {
     }
 
     @PostMapping("/user/{id}")
-    public User userInfo(@PathVariable int id){
+    public User userInfo(@PathVariable int id) {
         User user = userDaoService.findUser(id);
-        if(user == null) throw new UserNotFoundException(String.format("user[%s] not found",id));
+        if (user == null) throw new UserNotFoundException(String.format("user[%s] not found", id));
 
         return user;
     }
