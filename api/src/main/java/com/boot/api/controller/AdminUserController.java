@@ -46,7 +46,7 @@ public class AdminUserController {
         return mappingJacksonValue;
     }
 
-    @GetMapping("/users")
+    @GetMapping(value = "/users")
     public MappingJacksonValue getUsers(){
         List<User> userList = userDaoService.userList();
 
